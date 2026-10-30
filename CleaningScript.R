@@ -122,7 +122,7 @@ clean_year <- function(tbl, year) {
 
 draft <- map2(raw_list, 2000:2024, clean_year) |> list_rbind()
 
-# ---- Checks ----
+# Checks
 nrow(draft)
 
 # Years where picks don't run 1..n cleanly should return 0 rows
@@ -273,7 +273,7 @@ plot_data <- joined |>
   group_by(pos_group, college) |>
   summarise(allpro_players = n(), .groups = "drop") |>
   group_by(pos_group) |>
-  arrange(desc(allpro_players), college, .by_group = TRUE) |>  # ties broken alphabetically
+  arrange(desc(allpro_players), college, .by_group = TRUE) |> 
   slice_head(n = 5) |>
   ungroup() |>
   mutate(
