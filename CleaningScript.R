@@ -100,10 +100,10 @@ clean_year <- function(tbl, year) {
     mutate(across(everything(), as.character)) |>
     clean_names() |>
     mutate(
-      player = str_squish(player),                                # normalize hidden spaces
-      player = str_replace(player, "^(.+?), (.+?)(\\2 .*)$", "\\3"),  # remove sort keys
-      player = str_remove(player, ' "[^"]*"'),                    # remove quoted nicknames
-      player = str_replace_all(player, "\u2013", "-")             # en dash -> hyphen
+      player = str_squish(player),
+      player = str_replace(player, "^(.+?), (.+?)(\\2 .*)$", "\\3"),
+      player = str_remove(player, ' "[^"]*"'),
+      player = str_replace_all(player, "\u2013", "-")
     ) |>
     mutate(
       year         = year,
